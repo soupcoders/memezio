@@ -1,9 +1,11 @@
 package com.soupcoders.memezio
 
-class Application {
+import scalaz.zio.console._
+import scalaz.zio._
 
-  def main(args: Array[String]): Unit = {
-    println("Hello world!")
-  }
+object Application extends App {
+
+  override def run(args: List[String]): ZIO[Console, Nothing, Int] =
+    putStrLn("Hello World").fold(_ => 1, _ => 0)
 
 }
